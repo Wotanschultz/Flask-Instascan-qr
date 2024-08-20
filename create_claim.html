@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title%}
+главная страница
+{% endblock %}
+
+{% block body%}
+<div class="container mt-5" data-bs-theme="dark">
+    <h1>Добавить картридж</h1>
+    <form method="post" class="p-2 mb-3 bg-dark border-bottom border-dark" style="text-align: left;" action="/submit ">
+
+        <div class="b-example-divider"></div>
+<!--        <label for="unit_card">Подразделение:</label><br>-->
+        <select name="unit_card" id="unit_card">
+            {% for element in departments %}
+                <option>{{ element.unit_depart }}</option>
+            {% endfor %}
+        </select>
+
+        <input type="text" name="model_card" id="model_card" class="form-control" placeholder="Введите модель картриджа"><br>
+<!--        <input type="text" name="unit_card" id="unit_card"  class="form-control" placeholder="Введите подразделение"><br>-->
+
+        <input type="submit" class="btn btn-successbtn btn-lg btn-secondary" value="Добавить в базу данных">
+
+    </form>
+</div>
+
+<!--<input type="text" name="model_card" id="model_card" class="form-control" placeholder="Введите модель картриджа"><br>-->
+
+{% endblock %}

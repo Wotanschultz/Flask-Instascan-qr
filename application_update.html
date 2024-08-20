@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title%}
+Обновление заявки
+{% endblock %}
+
+{% block body%}
+<div class="container mt-5">
+    <h1>Обновление заявки</h1>
+    <form method="post">
+        <input type="text" name="unit" id="unit" class="form-control"  value="{{ article.unit }}" placeholder="Введите подразделение"><br>
+        <input type="text" name="model" id="model" class="form-control" value="{{ article.model }}" placeholder="Введите модель картриджа"><br>
+        <textarea name="who" id="who" class="form-control" placeholder="Кто отправил картридж? Напишите ФИО, а также ваш номер">{{ article.who }}</textarea><br>
+        <input type="submit" class="btn btn-success" value="Обновить">
+    </form>
+</div>
+{% endblock %}

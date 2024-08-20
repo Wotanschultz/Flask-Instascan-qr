@@ -1,0 +1,17 @@
+.text-back {
+    background: #ffffff;
+
+}
+.text-head {
+    background: #121212;
+}
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #fff;
+    -webkit-box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+        box-shadow: 0 35px 25px rgba(0,0,0,0.15);
+}
+
+

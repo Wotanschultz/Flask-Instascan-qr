@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title%}
+Сформированные заявки
+{% endblock %}
+
+{% block body%}
+<div class="container mt-5">
+    <h2>Сформированные заявки</h2>
+
+    <label class="p-2 mb-3 bg-dark border-bottom border-dark">
+    <input type="text" name="model_card" id="model_card" class="form-control" placeholder="Найти..."><br>
+    <input id="html" type="checkbox">
+        <label for="html">Заправленный картридж</label>
+    </label>
+    {% for element in articles %}
+    <div class="h-100 p-2  mb-3 bg-body-tertiary border rounded-2">
+        <h2 style="color: #474747;">{{element.unit}}</h2>
+        <p style="color: #474747;"><b>Дата:{{element.date.date()}}</b></p>
+        <a href="/application/{{ element.id }}" class="btn btn-outline-secondary">Обзор</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title%}
+{% endblock %}
+
+{% block body%}
+<div class="container mt-5" style="text-align: left;">
+    <h2>QR генератор</h2>
+    <form action="/qr_code" method="post">
+        <input  type="text" name="link" class="form-control" placeholder="Введите" ><br>
+        <input  type="submit" class="btn btn-lg btn-secondary" value="Сгенерировать">
+    </form>
+</div>
+<div class="generated">
+    <img src ="{{data}}" alt=""/>
+</div>
+<div class="loading">
+    <button class="btn btn-primary" type="button" disabled="">
+    <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+    <span role="status">Loading...</span>
+    </button>
+</div>
+<head>
+    <title>Instascan</title>
+    <script type="text/javascript" src="static/instascan.min.js"></script>
+  </head>
+  <body>
+    <video style = "position: absolute; left: 310px; top: 300px;" id="preview"> </video><br>
+    <script type="text/javascript">
+      let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+      scanner.addListener('scan', function (content) {
+        console.log(content);
+      });
+      Instascan.Camera.getCameras().then(function (cameras) {
+        if (cameras.length > 0) {
+          scanner.start(cameras[0]);
+        } else {
+          console.error('No cameras found.');
+        }
+      }).catch(function (e) {
+        console.error(e);
+      });
+      scanner.addListener('scan', function (content) {
+          alert(content);
+          window.open(content, "_blank")
+          // document.getElementById('text').value=content;
+      });
+    </script>
+
+  </body>
+
+<style>
+    .generated {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    position: relative;
+    top: 0px; right: 100px;
+    }
+    .loading {
+    position: absolute; /* Абсолютное позиционирование */
+    bottom: 400px; /* Положение от нижнего края */
+    right: 1300px; /* Положение от правого края */
+    line-height: 1px;
+    }
+</style>
+{% endblock %}

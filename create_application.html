@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title%}
+главная страница
+{% endblock %}
+
+{% block body%}
+
+<div class="container mt-5" style="text-align: left;">
+    <h1>Создание заявки</h1>
+    <form method="post">
+        <input type="text" name= "unit" id="unit" class="form-control" placeholder="Введите подразделение"><br>
+        <input type="text" name="model" id="model" class="form-control" placeholder="Введите модель картриджа"><br>
+        <textarea name="who" id="who" class="form-control" placeholder="Кто отправил картридж? Напишите ФИО, а также ваш номер"></textarea><br>
+        <input type="submit" class="btn btn-lg btn-secondary" value="Отправить">
+    </form>
+</div>
+{% endblock %}

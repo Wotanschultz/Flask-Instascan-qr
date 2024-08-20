@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title%}
+{{ article.unit }}
+{% endblock %}
+
+{% block body%}
+<div class="container mt-5">
+    <h2>{{ article.unit }}</h2>
+    <div class="h-100 p-4 bg-body-tertiary border rounded-3">
+        <h3>{{ article.unit }}</h3>
+        <h3>{{ article.model }}</h3>
+        <h3>{{ article.who }}</h3>
+        <p style="color: #474747;"><b>Дата:{{article.date.date()}}</b></p>
+        <a href="/application/{{ article.id }}/delete" class="btn btn-outline-secondary">Удалить</a>
+        <a href="/application/{{ article.id }}/update" class="btn btn-outline-secondary">Редактировать</a>
+    </div>
+</div>
+{% endblock %}

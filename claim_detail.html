@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title%}
+{{ cartridge.unit_card }}
+{% endblock %}
+
+{% block body%}
+<div class="container mt-5">
+    <h2>{{ cartridge.unit_card }}</h2>
+    <div class="h-100 p-2 bg-body-tertiary border rounded-2">
+        <h3>{{ cartridge.unit_card }}</h3>
+        <h3>{{ cartridge.model_card }}</h3>
+        <a href="/claim/{{ cartridge.id_card }}/delete" class="btn btn-outline-secondary">Удалить</a>
+        <a href="/claim/{{ cartridge.id_card }}/update" class="btn btn-outline-secondary">Редактировать</a>
+    </div>
+</div>
+{% endblock %}

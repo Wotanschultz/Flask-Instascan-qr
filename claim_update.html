@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title%}
+Обновление картриджа
+{% endblock %}
+
+{% block body%}
+<div class="container mt-5">
+    <h1>Обновление картриджа</h1>
+    <form method="post">
+        <input type="text" name="unit_card" id="unit_card" class="form-control"  value="{{ cartridge.unit_card }}" placeholder="Введите подразделение"><br>
+        <input type="text" name="model_card" id="model_card" class="form-control" value="{{ cartridge.model_card }}" placeholder="Введите модель картриджа"><br>
+        <input type="submit" class="btn btn-success" value="Обновить">
+    </form>
+</div>
+{% endblock %}
